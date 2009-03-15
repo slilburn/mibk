@@ -1,10 +1,12 @@
 from django.conf.urls.defaults import *
+from social.views import showpeople
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+	(r'^people/$', showpeople),
     # Example:
     # (r'^mibk/', include('mibk.foo.urls')),
 
