@@ -23,3 +23,12 @@ class Answer(models.Model):
 	date_added = models.DateTimeField()
 	score = models.IntegerField()
 	author = models.ForeignKey(Person,related_name='answers')
+        
+class Group(models.Model):
+    name = models.CharField(max_length=400)
+    description = models.TextField()
+    members = models.ManyToManyField(Person)
+    
+    class Meta:
+        verbose_name_plural = "groups"
+        
