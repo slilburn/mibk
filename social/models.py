@@ -11,3 +11,11 @@ class Person(models.Model):
     def __unicode__(self):
         return "%s %s" % (self.first_name, self.last_name)
         
+class Group(models.Model):
+    name = models.CharField(max_length=400)
+    description = models.TextField()
+    members = models.ManyToManyField(Person)
+    
+    class Meta:
+        verbose_name_plural = "groups"
+        
