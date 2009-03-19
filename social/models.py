@@ -28,15 +28,15 @@ class Answer(models.Model):
 	question = models.ForeignKey(Question, related_name='answers')
 	
 	def __unicode__(self):
-	    return "Answer to Question %s (%s)" % (self.question.title, self.date_added)
+	    return "Answer to Question \"%s\" [%s] (%s)" % (self.question.title, self.score, self.date_added)
 	
 	
 class Group(models.Model):
     name = models.CharField(max_length=400)
     description = models.TextField()
     members = models.ManyToManyField(Person, related_name="group_members")
-
+    
     class Meta:
         verbose_name_plural = "groups"
-	def __unicode__(self):
-		return self.name
+    def __unicode__(self):
+        return self.name
